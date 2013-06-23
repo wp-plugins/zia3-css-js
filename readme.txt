@@ -17,9 +17,9 @@ to be added to any page or post individually.
 
 Two simple steps:
 
-1- Enter the directory location/s of your custom CSS and/or JavaScript files on the Zia3 JS
+* Enter the directory location/s of your custom CSS and/or JavaScript files on the Zia3 JS
    CSS settings page
-2- Select the CSS/JS files you want to include on the page/post edit page using checkboxes
+* Select the CSS/JS files you want to include on the page/post edit page using checkboxes
 
 The plugin adds a css editor field when you are editing and creating a new post or page.
 With the plugin each template page/post will have more possibilities with it's increased
@@ -48,26 +48,26 @@ section).
 
 == Installation ==
 
-    Install automatically through the Plugins, Add New menu in WordPress, or upload the
-    zia3meta folder to the /wp-content/plugins/ directory.
+Install automatically through the Plugins, Add New menu in WordPress, or upload the
+zia3meta folder to the /wp-content/plugins/ directory.
 
-    Activate the plugin through the Plugins menu in WordPress. Look for the Settings link
-    Zia3-JS-CSS to configure the Options.
+Activate the plugin through the Plugins menu in WordPress. Look for the Settings link
+Zia3-JS-CSS to configure the Options.
 
 == Frequently Asked Questions ==
 
-Who can insert JavaScript or CSS ?
+= Who can insert JavaScript or CSS ? =
 By default users with the capability upload_files are allowed to insert JavaScript or CSS
 into posts/pages. This seemed to be a logical choice as you need to have a certain level of trust
 for users to upload files.
 
-Can I add CSS I defined via a file, or one that is hosted elsewhere ?
+= Can I add CSS I defined via a file, or one that is hosted elsewhere ? =
 Yes, via the "Zia3-JS-CSS" input fields on the plugin's settings page.
 
-Can I limit what pages the CSS / JS gets output on ?
+= Can I limit what pages the CSS / JS gets output on ? =
 Yes. This is the main strengh of the plugin.
 
-Why don't I have  any  checkboxes to include CSS/JS files ?
+= Why don't I have  any  checkboxes to include CSS/JS files ? =
 You either have no files in the selected CSS/JS directories you set up using the Zia3 CSS JS
 options page or the directory doesn't exist or you don't have access to it. The configuration
 page displays both the file path on the server and the URl as a link to the configured CSS/JS
