@@ -81,6 +81,8 @@ via .htaccess file configuration.
 2. Zia3 CSS JS Settings
 3. Zia3 CSS JS Installation Upload
 4. Zia3 CSS JS Installation Success
+5. Zia3 CSS JS Setting Menu Link
+6. Zia3 CSS JS Syntax Highligher
 
 == Upgrade Notice ==
 
@@ -90,4 +92,5 @@ Just the usual, deactivate plugin, replace files, activate.
 
 0.1 initial release.
 
+0.2 Added CSS and JavaScript code highlighting and auto-complete to respective metaboxes.
 
