@@ -5,6 +5,7 @@ Tags: admin, posts, page, style, stylesheet, stylesheets, personal style, html s
       javascript, css, developer, designer, editor, inline
 Requires at least: 3.3
 Tested up to: 3.5.2
+Stable tag: 0.2
 License: GPL3
 
 Define additional CSS and JavaScript (inline and/or by URL)
