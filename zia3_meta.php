@@ -26,13 +26,55 @@ License: GPL3
     along with this program.  If not, see <http://www.gnu.org/licenses/>
 */    
 
-//TODO: check if function names have been defined
-//TODO: newlines for inline CSS / JS injector
 //TODO: minify CSS/JS
 
 include 'zia3_meta_options.php';
 
+//scripts / css for metaboxes
 wp_enqueue_script('meta-fields', plugins_url( '/js/meta-fields.js', __FILE__ ));
+
+//scripts for Zia3 CSS JS plugin
+function zia3_css_js_scripts_important()
+{
+	if(is_admin()) { /* loading of your scripts in the admin*/
+		wp_register_script( 'meta_fields', plugins_url( '/js/meta-fields.js', __FILE__ ));
+		wp_register_script( 'syntax-highlighter-core', plugins_url( '/syntax_highlighter/lib/codemirror.js', __FILE__ ) );
+		wp_register_script( 'syntax-highlighter-show-hint', plugins_url( '/syntax_highlighter/addon/hint/show-hint.js', __FILE__ ) );
+		wp_register_script( 'syntax-highlighter-javascript-hint', plugins_url( '/syntax_highlighter/addon/hint/javascript-hint.js', __FILE__ ) );
+		wp_register_script( 'syntax-highlighter-mode-javascript', plugins_url( '/syntax_highlighter/mode/javascript/javascript.js', __FILE__ ) );
+		wp_register_script( 'syntax-highlighter-mode-css', plugins_url( '/syntax_highlighter/mode/css/css.js', __FILE__ ) );
+		wp_register_script( 'syntax-highlighter-theme', plugins_url('/syntax_highlighter/theme/ambiance.css', __FILE__) );
+		
+		wp_enqueue_script( 'syntax-highlighter-core' );
+		wp_enqueue_script( 'syntax-highlighter-show-hint' );
+		wp_enqueue_script( 'syntax-highlighter-javascript-hint' );
+		wp_enqueue_script( 'syntax-highlighter-mode-css' );
+		wp_enqueue_script( 'syntax-highlighter-mode-javascript' );
+		wp_enqueue_script( 'syntax-highlighter-theme' );
+		wp_enqueue_script( 'meta_fields' );
+	}	
+}
+add_action( 'admin_enqueue_scripts', 'zia3_css_js_scripts_important' );
+
+function zia3_css_js_styles_important()
+{
+	if(is_admin()) {   /* loading of your stylesheet in the admin*/
+
+		wp_register_style( 'syntax-highlighter-style-core', plugins_url( '/syntax_highlighter/lib/codemirror.css', __FILE__ ), array(), '1.0', 'all' );
+		wp_register_style( 'syntax-highlighter-style-show-hint', plugins_url( '/addon/hint/show-hint.css', __FILE__ ), array(), '1.0', 'all' );
+
+		wp_enqueue_style( 'syntax-highlighter-style-core' );
+		wp_enqueue_style( 'syntax-highlighter-style-show-hint' );		
+	}
+}
+add_action( 'admin_enqueue_scripts', 'zia3_css_js_styles_important' );
+
+function zia3_css_js_highlight_script_important()
+{
+	wp_register_script( 'syntax_highlighter', plugins_url( '/js/syntax_highlighter.js', __FILE__ ));
+	wp_enqueue_script( 'syntax_highlighter' );
+}
+add_action( 'admin_footer', 'zia3_css_js_highlight_script_important' );
 
 // Add the Meta Box  
 function zia3_add_custom_meta_box() {  
@@ -489,8 +531,8 @@ add_action('admin_menu', 'zia3meta_custom_css_hooks');
 add_action('save_post', 'zia3meta_save_custom_css');
 add_action('wp_head','zia3meta_insert_custom_css', 50);
 function zia3meta_custom_css_hooks() {
-	add_meta_box('zia3meta_custom_css', 'Zia3 Inline Custom CSS', 'zia3meta_custom_css_input', 'post', 'normal', 'high');
-	add_meta_box('zia3meta_custom_css', 'Zia3 Inline Custom CSS', 'zia3meta_custom_css_input', 'page', 'normal', 'high');
+	add_meta_box('zia3meta_custom_css_container', 'Zia3 Inline Custom CSS', 'zia3meta_custom_css_input', 'post', 'normal', 'high');
+	add_meta_box('zia3meta_custom_css_container', 'Zia3 Inline Custom CSS', 'zia3meta_custom_css_input', 'page', 'normal', 'high');
 }
 function zia3meta_custom_css_input() {
 	global $post;
@@ -502,7 +544,7 @@ function zia3meta_save_custom_css($post_id) {
 	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return $post_id;
 	$custom_css = $_POST['zia3meta_custom_css'];
 	update_post_meta($post_id, '_zia3meta_custom_css', $custom_css);
-}
+}                                                                         
 function zia3meta_insert_custom_css() {
 	if (is_page() || is_single()) {
 	    $inline_css = get_post_meta(get_the_ID(), '_zia3meta_custom_css', true);
@@ -522,8 +564,8 @@ add_action('admin_menu', 'zia3meta_custom_js_hooks');
 add_action('save_post', 'zia3meta_save_custom_js');
 add_action('wp_head','zia3meta_insert_custom_js', 50);
 function zia3meta_custom_js_hooks() {
-	add_meta_box('zia3meta_custom_js', 'Zia3 Inline Custom JavaScript', 'zia3meta_custom_js_input', 'post', 'normal', 'high');
-	add_meta_box('zia3meta_custom_js', 'Zia3 Inline Custom JavaScript', 'zia3meta_custom_js_input', 'page', 'normal', 'high');
+	add_meta_box('zia3meta_custom_js_container', 'Zia3 Inline Custom JavaScript', 'zia3meta_custom_js_input', 'post', 'normal', 'high');
+	add_meta_box('zia3meta_custom_js_container', 'Zia3 Inline Custom JavaScript', 'zia3meta_custom_js_input', 'page', 'normal', 'high');
 }
 function zia3meta_custom_js_input() {
 	global $post;
