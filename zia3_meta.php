@@ -37,8 +37,6 @@ Tested up to: 3.5.2
 include 'zia3_meta_options.php';
 
 //scripts / css for metaboxes
-wp_enqueue_script('meta-fields', plugins_url( '/js/meta-fields.js', __FILE__ ));
-
 //scripts for Zia3 CSS JS plugin
 function zia3_css_js_scripts_important()
 {
