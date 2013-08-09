@@ -2,7 +2,7 @@
 /*
 Plugin Name: Zia3-JS-CSS
 Plugin URI: http://plugins.zia3.com/plugins/wordpress/zia3-css-javascript/
-Description: Zia3 Custom CSS JSS Files per page/post.
+Description: Zia3 Custom CSS JS Files per page/post.
 Version: 0.2
 Author: Zia3
 Author URI: http://zia3.com
@@ -43,6 +43,7 @@ wp_enqueue_script('meta-fields', plugins_url( '/js/meta-fields.js', __FILE__ ));
 function zia3_css_js_scripts_important()
 {
 	if(is_admin()) { /* loading of your scripts in the admin*/
+		wp_register_script( 'jquery_ui_custom', plugins_url( '/js/jquery-ui.min.js', __FILE__ ));
 		wp_register_script( 'meta_fields', plugins_url( '/js/meta-fields.js', __FILE__ ));
 		wp_register_script( 'syntax-highlighter-core', plugins_url( '/syntax_highlighter/lib/codemirror.js', __FILE__ ) );
 		wp_register_script( 'syntax-highlighter-show-hint', plugins_url( '/syntax_highlighter/addon/hint/show-hint.js', __FILE__ ) );
@@ -51,6 +52,7 @@ function zia3_css_js_scripts_important()
 		wp_register_script( 'syntax-highlighter-mode-css', plugins_url( '/syntax_highlighter/mode/css/css.js', __FILE__ ) );
 		wp_register_script( 'syntax-highlighter-theme', plugins_url('/syntax_highlighter/theme/ambiance.css', __FILE__) );
 		
+		wp_enqueue_script( 'jquery_ui_custom' );
 		wp_enqueue_script( 'syntax-highlighter-core' );
 		wp_enqueue_script( 'syntax-highlighter-show-hint' );
 		wp_enqueue_script( 'syntax-highlighter-javascript-hint' );
