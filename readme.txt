@@ -4,8 +4,8 @@ Donate link: http://plugins.zia3.com/donate/
 Tags: admin, posts, page, style, stylesheet, stylesheets, personal style, html style,
       javascript, css, developer, designer, editor, inline, syntax highlighting, pretify
 Requires at least: 3.3
-Tested up to: 3.5.2
-Stable tag: 0.2
+Tested up to: 3.7
+Stable tag: 0.3
 License: GPL3
 
 Define additional CSS and JavaScript (inline and/or by URL)
