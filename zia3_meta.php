@@ -69,7 +69,7 @@ function zia3_css_js_styles_important()
 	if(is_admin()) {   /* loading of your stylesheet in the admin*/
 
 		wp_register_style( 'syntax-highlighter-style-core', plugins_url( '/syntax_highlighter/lib/codemirror.css', __FILE__ ), array(), '1.0', 'all' );
-		wp_register_style( 'syntax-highlighter-style-show-hint', plugins_url( '/addon/hint/show-hint.css', __FILE__ ), array(), '1.0', 'all' );
+		wp_register_style( 'syntax-highlighter-style-show-hint', plugins_url( '/syntax_highlighter/addon/hint/show-hint.css', __FILE__ ), array(), '1.0', 'all' );
 
 		wp_enqueue_style( 'syntax-highlighter-style-core' );
 		wp_enqueue_style( 'syntax-highlighter-style-show-hint' );		
