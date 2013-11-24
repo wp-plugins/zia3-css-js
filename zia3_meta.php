@@ -3,7 +3,7 @@
 Plugin Name: Zia3-JS-CSS
 Plugin URI: http://plugins.zia3.com/plugins/wordpress/zia3-css-javascript/
 Description: Zia3 Custom CSS JS Files per page/post.
-Version: 0.4
+Version: 0.5
 Author: Zia3
 Author URI: http://zia3.com
 License: GPL3
@@ -62,7 +62,7 @@ function zia3_css_js_scripts_important()
 		wp_enqueue_script( 'meta_fields' );
 	}	
 }
-add_action( 'admin_enqueue_scripts', 'zia3_css_js_scripts_important' );
+
 
 function zia3_css_js_styles_important()
 {
@@ -75,17 +75,22 @@ function zia3_css_js_styles_important()
 		wp_enqueue_style( 'syntax-highlighter-style-show-hint' );		
 	}
 }
-add_action( 'admin_enqueue_scripts', 'zia3_css_js_styles_important' );
+
 
 function zia3_css_js_highlight_script_important()
 {
 	wp_register_script( 'syntax_highlighter', plugins_url( '/js/syntax_highlighter.js', __FILE__ ));
 	wp_enqueue_script( 'syntax_highlighter' );
 }
-add_action( 'admin_footer', 'zia3_css_js_highlight_script_important' );
+
 
 // Add the Meta Box  
 function zia3_add_custom_meta_box() {  
+	//only load these scripts when metaboxes are visible
+	add_action( 'admin_enqueue_scripts', 'zia3_css_js_scripts_important' );
+	add_action( 'admin_enqueue_scripts', 'zia3_css_js_styles_important' );
+	add_action( 'admin_footer', 'zia3_css_js_highlight_script_important' );
+	
     add_meta_box(  
         'zia3_meta_box_css', // $id  
         'Zia3 Custom CSS JavaScript Files Plugin', // $title   
@@ -501,7 +506,7 @@ function zia3_insert_css_js_file_posts() {
     $my_js_meta = get_post_meta(get_the_ID(), $js_key, true);
     
     //inset css
-     if (is_page() || is_single()) {
+    if (is_page() || is_single()) {
 	if (have_posts()) : while (have_posts()) : the_post();
 	// loop through fields and save the data 
 	if($my_css_meta) { 
@@ -518,7 +523,7 @@ function zia3_insert_css_js_file_posts() {
     $file_counter = 0;
     
     //insert js
-     if (is_page() || is_single()) {
+    if (is_page() || is_single()) {
 	if (have_posts()) : while (have_posts()) : the_post();
 	// loop through fields and save the data 
 	if($my_js_meta) { 

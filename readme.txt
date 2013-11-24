@@ -5,7 +5,7 @@ Tags: admin, posts, page, style, stylesheet, stylesheets, personal style, html s
       javascript, css, developer, designer, editor, inline, syntax highlighting, pretify
 Requires at least: 3.3
 Tested up to: 3.9
-Stable tag: 0.4
+Stable tag: 0.5
 License: GPL3
 
 Define additional CSS and JavaScript (inline and/or by URL)
