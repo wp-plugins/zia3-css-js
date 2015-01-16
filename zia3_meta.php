@@ -3,7 +3,7 @@
  Plugin Name: Zia3-JS-CSS
 Plugin URI: http://plugins.zia3.com/plugins/wordpress/zia3-css-javascript/
 Description: Zia3 Custom CSS JS Files per page/post.
-Version: 0.5
+Version: 0.6
 Author: Zia3
 Author URI: http://zia3.com
 License: GPL3
