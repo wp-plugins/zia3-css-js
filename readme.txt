@@ -1,11 +1,10 @@
 === Zia3 CSS JS ===
 Contributors: zia3wp
 Donate link: http://plugins.zia3.com/donate/
-Tags: admin, posts, page, style, stylesheet, stylesheets, personal style, html style,
-      javascript, css, developer, designer, editor, inline, syntax highlighting, pretify
+Tags: per page CSS, per page JavaScript, admin, posts, page, style, stylesheet, stylesheets, personal style, html style, javascript, css,, inline, syntax highlighting, pretify
 Requires at least: 3.3
-Tested up to: 4.2
-Stable tag: 0.6
+Tested up to: 4.5
+Stable tag: 1.0
 License: GPL3
 
 Define additional CSS and JavaScript (inline and/or by URL)
